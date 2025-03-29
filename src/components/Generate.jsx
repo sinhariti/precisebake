@@ -1,14 +1,15 @@
-import { ChatSession } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { toast } from "sonner"
 
 function Generate() {
-
-  const AI_PROMPT = "{Prompt}. The recipe should include: A brief introduction about the [Dish Name], including its flavor profile, texture, and why it is loved by many.A complete list of all ingredients with precise measurements, categorized into logical sections (e.g., 'For the Main Dish,' 'For the Sauce,' or 'For the Topping'). Clear, step-by-step instructions for preparation, cooking/baking, and serving the dish. Ensure the steps are concise and beginner-friendly.Expert tips for achieving the best results, such as keeping the dish moist, getting the right consistency, or enhancing flavors. Approximate preparation and cooking/baking times, along with the recommended temperature or equipment (if applicable).A clear, reader-friendly format with headings, bullet points, and numbered steps for readability. Include allergy alerts for common allergens like gluten, nuts, eggs, or dairy. Provide optional variations or substitutions to accommodate dietary preferences or creative spins on the recipe.Return the recipe in HTML <body> format for easy integration into a webpage. Allow placeholders to be replaced for dish-specific ingredients, steps, and tips."
-  async function generateRecipe(FINAL_PROMPT) {
-    const session = new ChatSession({
-      apiKey: import.meta.env.VITE_GENERATIVE_AI_KEY,
-    });
-    const response = await session.sendMessage(FINAL_PROMPT);
+  const apiKey = import.meta.env.VITE_GOOGLE_GEMINI_API_KEY;
+  const ai = new GoogleGenAI({ apiKey: apiKey});
+    const AI_PROMPT = "{Prompt}. The recipe should include: A brief introduction about the [Dish Name], including its flavor profile, texture, and why it is loved by many.A complete list of all ingredients with precise measurements, categorized into logical sections (e.g., 'For the Main Dish,' 'For the Sauce,' or 'For the Topping'). Clear, step-by-step instructions for preparation, cooking/baking, and serving the dish. Ensure the steps are concise and beginner-friendly.Expert tips for achieving the best results, such as keeping the dish moist, getting the right consistency, or enhancing flavors. Approximate preparation and cooking/baking times, along with the recommended temperature or equipment (if applicable).A clear, reader-friendly format with headings, bullet points, and numbered steps for readability. Include allergy alerts for common allergens like gluten, nuts, eggs, or dairy. Provide optional variations or substitutions to accommodate dietary preferences or creative spins on the recipe.Return the recipe in HTML <body> format for easy integration into a webpage. Allow placeholders to be replaced for dish-specific ingredients, steps, and tips."
+    async function generateRecipe(FINAL_PROMPT) {
+      const response = await ai.models.generateContent({
+       model: "gemini-2.0-flash",
+       contents: FINAL_PROMPT,
+     });
     console.log(response.text);
   }
   const onGenerate = async() => {
@@ -30,6 +31,7 @@ function Generate() {
     console.log(FINAL_PROMPT);
     try {
       generateRecipe(FINAL_PROMPT);
+
     } catch (error) {
       console.error("Error generating recipe:", error);
       toast('Failed to generate recipe. Please try again.', { type: 'error' });
