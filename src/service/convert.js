@@ -3,19 +3,7 @@ import { GoogleAIFileManager } from "@google/generative-ai/server";
 import dotenv from 'dotenv';
 dotenv.config();
 const apiKey = process.env.VITE_CONVERT_GEMINI_API_KEY;
-// import "@google/genai";
-// import { GoogleAIFileManager } from "@google/generative-ai/server";
-// const {
-//     GoogleGenerativeAI,
-//     HarmCategory,
-//     HarmBlockThreshold,
-//   } = require("@google/generative-ai");
-//   const { GoogleAIFileManager } = require("@google/generative-ai/server");
-//   require('dotenv').config();
 
-
-  // const apiKey = process.env.VITE_CONVERT_GEMINI_API_KEY;
-  // console.log("API Key:", apiKey); // Log the API key to verify it's being loaded correctly
   const genAI = new GoogleGenerativeAI(apiKey);
   const fileManager = new GoogleAIFileManager(apiKey);
   
