@@ -92,7 +92,7 @@ export default function Converter() {
               </div>
             )}
             {result && (
-        <div className="mt-6 p-4 bg-white rounded-lg shadow-md">
+        <div className="z-50 mt-6 p-4 bg-white rounded-lg shadow-md">
           <p className="font-bold text-xl">{result.weight}</p>
           {result.assumption && (
             <p className="text-gray-600 mt-2">Assumption: {result.assumption}</p>
