@@ -16,7 +16,6 @@ const apiKey = process.env.VITE_CONVERT_GEMINI_API_KEY;
 
   // const apiKey = process.env.VITE_CONVERT_GEMINI_API_KEY;
   // console.log("API Key:", apiKey); // Log the API key to verify it's being loaded correctly
-  // const apiKey = "AIzaSyDoSxHA3wwzOXS9x8Ic627ZVuGv4mQn1EM"
   const genAI = new GoogleGenerativeAI(apiKey);
   const fileManager = new GoogleAIFileManager(apiKey);
   
