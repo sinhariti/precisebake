@@ -92,7 +92,7 @@ const apiKey = process.env.VITE_CONVERT_GEMINI_API_KEY;
     1 teaspoon = 4.92892 ml
     1 cup = 250 ml`;
     const files = [
-      await uploadToGemini("ingridients_list.json", "text/plain"),
+      await uploadToGemini("ingredients_list.txt", "text/plain"),
       // await uploadJsonToGemini("ingridients_list.json"),
     ];
   
