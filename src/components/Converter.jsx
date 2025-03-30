@@ -65,6 +65,7 @@ export default function Converter() {
           </div>
   
           {/* Converter Section */}
+          <div>
           <div className="flex flex-col justify-center space-y-6">
             <h2 className="text-4xl font-extrabold text-[#38495b]">CONVERTER :</h2>
             <input
@@ -99,6 +100,7 @@ export default function Converter() {
           <p className="font-mono mt-2 text-sm">Calculation: {result.calculation}</p>
         </div>
       )}
+          </div>
           </div>
         </div>
       </div>
