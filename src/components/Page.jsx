@@ -28,7 +28,13 @@ export default function Page() {
   
           {/* CTA Button */}
           <div className="mt-8">
-            <button className="bg-white text-black hover:bg-gray-100 text-lg px-8 py-4 rounded-sm shadow-lg font-semibold">
+            <button
+              onClick={() => {
+                document.getElementById('converter').scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
+             className="bg-white text-black hover:bg-gray-100 text-lg px-8 py-4 rounded-sm shadow-lg font-semibold">
               Try Now!
             </button>
           </div>

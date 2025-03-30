@@ -1,0 +1,84 @@
+INGREDIENTS DENSITY LIST
+======================
+
+All-purpose flour: 0.521 g/ml
+Bread flour: 0.593 g/ml
+Cake flour: 0.593 g/ml
+Whole wheat flour: 0.55 g/ml
+Cornstarch: 0.54 g/ml
+Oat flour: 0.593 g/ml
+Rice flour: 0.593 g/ml
+Granulated sugar: 0.9 g/ml
+Brown sugar (packed): 0.721 g/ml
+Powdered sugar: 0.56 g/ml
+Honey: 1.42 g/ml
+Maple syrup: 1.32 g/ml
+Molasses: 1.42 g/ml
+Baking soda: 2.2 g/ml
+Baking powder: 0.721 g/ml
+Butter: 0.911 g/ml
+Whole milk: 1.03 g/ml
+Skim milk: 1.033 g/ml
+Heavy cream: 0.994 g/ml
+Olive oil: 0.918 g/ml
+Eggs (whole): 1.03 g/ml
+Cocoa powder: 0.5 g/ml
+Chocolate chips: 1.32 g/ml
+Salt: 2.165 g/ml
+Vanilla extract: 0.88 g/ml
+Cinnamon (ground): 0.56 g/ml
+Nutmeg (ground): 0.68 g/ml
+Allspice (ground): 0.56 g/ml
+Ginger (ground): 0.56 g/ml
+Almonds (whole): 0.72 g/ml
+Walnuts: 0.65 g/ml
+Pecans: 0.65 g/ml
+Cashews: 0.64 g/ml
+Pistachios: 0.646 g/ml
+Sunflower seeds: 0.6 g/ml
+Sesame seeds: 0.6 g/ml
+Raisins: 0.65 g/ml
+Cranberries (dried): 0.55 g/ml
+Dates: 0.8 g/ml
+Bananas (mashed): 1.2 g/ml
+Applesauce: 1.1 g/ml
+Lemon juice: 1.035 g/ml
+Orange juice: 1.038 g/ml
+Corn syrup: 1.38 g/ml
+Soy milk: 1.08 g/ml
+Almond milk: 1.11 g/ml
+Coconut milk: 1.015 g/ml
+Ricotta cheese: 1.03 g/ml
+Cream cheese: 1.03 g/ml
+Mascarpone: 1.1 g/ml
+Yogurt (plain): 1.06 g/ml
+Sour cream: 1.005 g/ml
+Pumpkin puree: 1.01 g/ml
+Carrot puree: 1.02 g/ml
+Peanut butter: 1.1 g/ml
+Tahini: 1.2 g/ml
+Coconut flakes: 0.56 g/ml
+Chia seeds: 0.54 g/ml
+Flaxseeds: 0.54 g/ml
+Matcha powder: 0.5 g/ml
+Espresso powder: 0.5 g/ml
+Cornmeal: 0.7 g/ml
+Semolina: 0.78 g/ml
+Gelatin: 1.27 g/ml
+Xanthan gum: 1.2 g/ml
+Pectin: 1.3 g/ml
+Milk powder: 0.64 g/ml
+Barley flour: 0.69 g/ml
+Quinoa flour: 0.58 g/ml
+Buckwheat flour: 0.68 g/ml
+Sorghum flour: 0.57 g/ml
+Coconut flour: 0.45 g/ml
+Hazelnuts: 0.63 g/ml
+Macadamia nuts: 0.7 g/ml
+Powdered egg whites: 0.4 g/ml
+Tapioca starch: 0.56 g/ml
+Whey protein powder: 0.5 g/ml
+Oat bran: 0.62 g/ml
+Amaranth flour: 0.64 g/ml
+Black sesame seeds: 0.6 g/ml
+Poppy seeds: 0.6 g/ml
