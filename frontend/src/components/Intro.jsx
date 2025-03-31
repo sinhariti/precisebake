@@ -8,14 +8,10 @@ export default function Intro() {
               Spread a little joy.
             </h2>
             <p className="text-lg text-[#38495b] leading-relaxed">
-              Lil Mix Bakery mixes taste with intention. We know that food is more
-              than sustenance, it's an experience. There's comfort in warm cake,
-              joy in sweet drizzles, and happiness in pillow-soft bread. We serve
-              oven-fresh pastries meant to make our customers smile.
+            Baking is both an art and a science. Small variations in ingredient measurements can significantly impact texture, flavor, and overall quality. By eliminating guesswork, Precision Baking empowers bakers with the accuracy they need to create flawless baked goods every time.
             </p>
             <p className="text-lg text-gray-700 mt-4">
-              We look forward to your visit, and hope that we get to bake you
-              happy!
+              Achieve baking perfection with precise ingredient conversions!
             </p>
           </div>
   

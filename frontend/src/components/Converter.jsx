@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function Converter() {
   //state to hold the input value
@@ -13,9 +14,10 @@ export default function Converter() {
       setLoading(true);
       setError(null);
 
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'; // Provide a default value
+      const apiUrl = `${apiBaseUrl}/api/convert`;
 
-
-      const response = await fetch('http://localhost:3001/api/convert', {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,6 +28,7 @@ export default function Converter() {
       const data = await response.json();
       
       if (!response.ok) {
+        // toast("Please enter text", { type: "error" });
         throw new Error(data.message || 'Conversion failed');
       }
       let resultText = data.result;
@@ -39,6 +42,8 @@ export default function Converter() {
       setResult(JSON.parse(resultText));
 
     } catch (err) {
+      setResult(null);
+      toast("Invalid input or conversion failed. Please try again.", { type: "error" });
       console.error('Error:', err);
       setError(err.message);
     } finally {
@@ -70,7 +75,7 @@ export default function Converter() {
             <h2 className="text-4xl font-extrabold text-[#38495b]">CONVERTER :</h2>
             <input
               type="text"
-              placeholder="Type here"
+              placeholder="Eg. 1 cup of flour"
               onChange={(e) => setQuery(e.target.value)}
               className="w-full p-4 rounded-2xl bg-[#CBC5BC] text-white text-lg outline-none"
             />
@@ -86,13 +91,13 @@ export default function Converter() {
               {loading ? 'Converting...' : 'Convert'}
             </button>
             </div>
-            {error && (
-              <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-lg">
-              {error}
+            {/* {error && (
+              <div className="z-50 mt-4 p-3 bg-red-100 text-red-700 rounded-lg">
+              Invalid input or conversion failed. Please try again.
               </div>
-            )}
+            )} */}
             {result && (
-        <div className="z-50 mt-6 p-4 bg-white rounded-lg shadow-md">
+        <div className="z-50 mt-4 p-3 bg-white rounded-lg shadow-md">
           <p className="font-bold text-xl">{result.weight}</p>
           {result.assumption && (
             <p className="text-gray-600 mt-2">Assumption: {result.assumption}</p>
