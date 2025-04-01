@@ -46,9 +46,9 @@ export default function Features() {
               className="w-full h-[400px] object-cover"
             />
             <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white p-6 text-center">
-              <h3 className="text-2xl font-semibold">BREADS</h3>
+              <h3 className="text-2xl font-semibold">Multilingual</h3>
               <p className="mt-2 text-lg">
-                Freshly-baked loaves of bread you'll find irresistible.
+              Supports multiple languages for global accessibility.
               </p>
             </div>
           </div>
