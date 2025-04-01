@@ -81,13 +81,14 @@ export default function Converter() {
             />
             <div className="flex justify-end">
               <button
+                
                 // onClick={() => {
                 //   // Handle conversion logic here
                 //   console.log("Convert button clicked with query:", Query);
                 // }}
                 onClick={handleConvert}
                 disabled={loading}
-                className="w-32 px-5 py-2.5 bg-black text-white rounded-lg font-semibold shadow-md hover:bg-gray-800 transition-all">
+                className="w-32 px-5 py-2.5 bg-black text-white rounded-lg font-semibold shadow-md hover:bg-gray-800 cursor-pointer transition-all">
                 {loading ? 'Converting...' : 'Convert'}
               </button>
               {loading && (

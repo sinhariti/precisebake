@@ -100,7 +100,7 @@ function Generate() {
           <div className="flex justify-end">
             <button
               onClick={onGenerate}
-              className="w-32 px-5 py-2.5 bg-black text-white rounded-lg font-semibold shadow-md hover:bg-gray-800 transition-all"
+              className="w-32 px-5 py-2.5 bg-black text-white rounded-lg font-semibold shadow-md hover:bg-gray-800 transition-all cursor-pointer"
             >
               Generate!
             </button>
@@ -136,7 +136,7 @@ function Generate() {
         {showScrollBtn && (
           <button
             onClick={scrollToTop}
-            className="fixed bottom-10 right-10 bg-[#f8f6ef] text-black p-2 rounded-full shadow-md hover:bg-[#7d695f] transition-all"
+            className="fixed bottom-10 right-10 bg-[#f8f6ef] text-black p-2 rounded-full shadow-md hover:bg-gray-200 transition-all"
           >
             ⬆ Scroll to Top
           </button>
