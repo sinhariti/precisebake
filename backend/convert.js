@@ -86,10 +86,12 @@ const apiKey = process.env.VITE_CONVERT_GEMINI_API_KEY;
   };
   
   async function convert(query) {
-    const formattedQuery = `${query} calculate using the density given in the list. return the exact weight in one property as a sentence, assumptions if any and calculation using the density. dont return assumption if no assumption are made.
+    const formattedQuery = `${query} calculate using the density given in the list. return the exact weight in one property as a sentence, assumptions if any and calculation using the density. dont return assumption if no assumption are made. If the density is not in list then search for density and perform the calculation.
     1 table spoon = 14.7868 ml
     1 teaspoon = 4.92892 ml
-    1 cup = 250 ml`;
+    1 cup = 250 ml
+    1 ounce = 28.3495 g
+    1 pound = 453.592 g`;
     const files = [
       await uploadToGemini("ingredients_list.txt", "text/plain"),
       // await uploadJsonToGemini("ingridients_list.json"),
