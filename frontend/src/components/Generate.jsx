@@ -1,67 +1,59 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 import Modal from "react-modal";
-import {Progress} from "./ui/progress";
-import { GoogleGenAI } from "@google/genai";
 import { toast } from "sonner";
 import ClipLoader from "react-spinners/ClipLoader";
 
 // Ensure accessibility for screen readers
 Modal.setAppElement("#root");
 
-function Generate() {
-  
-  const apiKey = import.meta.env.VITE_GOOGLE_GEMINI_API_KEY;
-  const ai = new GoogleGenAI({ apiKey: apiKey });
-
-  const AI_PROMPT = "{Prompt}. The recipe should include: A brief introduction about the [Dish Name], including its flavor profile, texture, and why it is loved by many. A complete list of all ingredients with precise measurements, categorized into logical sections (e.g., 'For the Main Dish,' 'For the Sauce,' or 'For the Topping'). Clear, step-by-step instructions for preparation, cooking/baking, and serving the dish. Ensure the steps are concise and beginner-friendly. Expert tips for achieving the best results, such as keeping the dish moist, getting the right consistency, or enhancing flavors. Approximate preparation and cooking/baking times, along with the recommended temperature or equipment (if applicable). A clear, reader-friendly format with headings, bullet points, and numbered steps for readability. Include allergy alerts for common allergens like gluten, nuts, eggs, or dairy. Provide optional variations or substitutions to accommodate dietary preferences or creative spins on the recipe. Return the recipe in HTML <body> format with the Dish heading in <> for easy integration into a webpage.";
-
+export default function Generate() {
+  const [prompt, setPrompt] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [recipeHTML, setRecipeHTML] = useState("");
   const [showScrollBtn, setShowScrollBtn] = useState(false);
   const modalContentRef = useRef(null);
 
-  async function generateRecipe(FINAL_PROMPT) {
+  // Function to generate the recipe
+  const onGenerate = useCallback(async () => {
+    if (!prompt.trim()) {
+      toast("Please enter some text", { type: "error" });
+      return;
+    }
+
     try {
-      const response = await ai.models.generateContent({
-        model: "gemini-2.0-flash",
-        contents: FINAL_PROMPT,
+      setLoading(true);
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:3001";
+      const apiUrl = `${apiBaseUrl}/api/recipe`;
+
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt }), // Correct request body
       });
-      if (response.text) {
-        let cleanedHTML = response.text.replace(/```html|```/g, "").trim();
-  
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to generate recipe");
+      }
+
+      if (data.recipe) {
+        let cleanedHTML = data.recipe.replace(/```html|```/g, "").trim();
         setRecipeHTML(cleanedHTML);
         setIsOpen(true);
         toast("Recipe generated successfully!", { type: "success" });
       } else {
         throw new Error("Empty response received.");
       }
-    } catch (error) {
-      console.error("Error generating recipe:", error);
-      toast("Failed to generate recipe. Please try again.", { type: "error" });
+    } catch (e) {
+      toast("Error generating recipe. Please try again.", { type: "error" });
+      console.error("Error:", e);
     } finally {
       setLoading(false);
     }
-  }
-
-  const onGenerate = async () => {
-    const textarea = document.querySelector("textarea");
-    if (!textarea) {
-      toast("Textarea not found", { type: "error" });
-      return;
-    }
-    if (textarea.value.trim() === "") {
-      toast("Please enter some text", { type: "error" });
-      textarea.focus();
-      return;
-    }
-
-    setLoading(true);
-    const generatedText = textarea.value.trim();
-    const FINAL_PROMPT = AI_PROMPT.replace("{Prompt}", generatedText);
-
-    generateRecipe(FINAL_PROMPT);
-  };
+  }, [prompt]);
 
   // Scroll Button Logic
   const handleScroll = () => {
@@ -95,14 +87,17 @@ function Generate() {
           </h2>
           <textarea
             placeholder="Type here"
+            value={prompt} // Controlled input
+            onChange={(e) => setPrompt(e.target.value)}
             className="w-full h-36 p-4 rounded-3xl bg-[#CBC5BC] text-white text-lg outline-none"
           />
           <div className="flex justify-end">
             <button
               onClick={onGenerate}
+              disabled={loading}
               className="w-32 px-5 py-2.5 bg-black text-white rounded-lg font-semibold shadow-md hover:bg-gray-800 transition-all cursor-pointer"
             >
-              Generate!
+              {loading ? "Generating..." : "Generate!"}
             </button>
           </div>
         </div>
@@ -124,7 +119,7 @@ function Generate() {
         overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
       >
         <h2 className="text-2xl font-semibold mb-4">Here's Your Recipe!</h2>
-        
+
         <div
           ref={modalContentRef}
           className="max-h-[400px] overflow-y-auto p-4 border rounded-lg bg-gray-50 text-gray-700"
@@ -154,5 +149,3 @@ function Generate() {
     </div>
   );
 }
-
-export default Generate;
