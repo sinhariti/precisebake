@@ -31,7 +31,7 @@ export default function Generate() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ prompt }), // Correct request body
+        body: JSON.stringify({ FINAL_PROMPT: prompt }), // Correct request body
       });
 
       const data = await response.json();
