@@ -39,7 +39,7 @@
     COPY --from=backend-build /app/backend ./
     
     # Expose the port that the app listens on
-    EXPOSE 3001
+    EXPOSE 8080
     
     # Set environment variable
     ENV NODE_ENV production

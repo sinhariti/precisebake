@@ -3,6 +3,7 @@ import { GoogleAIFileManager } from "@google/generative-ai/server";
 import dotenv from 'dotenv';
 dotenv.config();
 const apiKey = process.env.VITE_CONVERT_GEMINI_API_KEY;
+
   const genAI = new GoogleGenerativeAI(apiKey);
   const fileManager = new GoogleAIFileManager(apiKey);
   
