@@ -1,7 +1,7 @@
 Google Solution Challenge Project
 ================================
 ![1_0CRBlRwShGYOgpNqPUsI_w](https://github.com/user-attachments/assets/75fe64fa-d73b-402b-86f6-864f3b2d33f7)
-
+## Website Link : https://precisebake.vercel.app/
 ## Problem Statement: Precision Baking - AI for Accurate Ingredient Measurement in Grams
 
 Online recipe platforms often list ingredients in vague measurements like "cups" or "spoons," which can lead to inconsistent results, especially in professional baking. This lack of precision frustrates bakers and affects the quality of their baked goods.
